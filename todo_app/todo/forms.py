@@ -7,7 +7,7 @@ class RegisterForm(forms.ModelForm):
         model=Register
         fields ='__all__'
 class LoginForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput)
     class Meta:
         model=Login
         fields='__all__'
-        password = forms.CharField(widget=forms.PasswordInput)
