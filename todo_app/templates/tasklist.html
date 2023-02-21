@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{%static 'css/tasklist.css' %}">
+    <script src="https://kit.fontawesome.com/7515bfdbf7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Task-Lists</title>
+</head>
+<body>
+    {% if request.user.is_authenticated %}
+    <p>{{request.user}}</p>
+        <a href="{% url 'login' %}">Logout</a>
+    {% else %}
+    {% endif %}
+<nav>
+    <div class="logo">
+        <p>My To Do List</p>
+    </div>
+    <ul>
+        <li><a href="{% url 'task-create' %}">Add Task</a></li>
+    </ul>
+</nav>
+<table>
+    <tr>
+        <th>Tasks</th><th>Description</th><th>Completed</th><th>Time</th><Th colspan="4">Update</Th>
+    </tr>
+    {% for tasks in task1 %}
+    <tr>
+
+        <td>{{tasks.title}}</td>
+        <td>{{tasks.Description}}</td>
+        <td>{{tasks.completed}}</td>
+        <td>{{tasks.created}}</td>
+        <td><a href="{%url 'task-detail' tasks.id %}"><i class="fa fa-eye"></i></a></td>
+        <td><a href="{% url 'task-update' tasks.id %}"><i class='fas fa-edit'></i></a></td>&nbsp
+        <td><a href="{%url 'task-delete' tasks.id %}"><i class="fa fa-trash-o"></i></a></td>
+    </tr>
+    {% endfor %}
+<!--    <h3 align="center"><button><a href="{% url 'task-create' %}">Add Task</a></button></h3>-->
+</table>
+    </main>
+</body>
+
+</html>

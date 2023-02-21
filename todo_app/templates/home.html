@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <Link rel="stylesheet" href="{%static 'css/home.css'%}">
+    <title>Home</title>
+</head>
+<body>
+<nav>
+    <div class="logo">
+        <p>My Todo Home</p>
+    </div>
+    <ul>
+        <li><a href="{% url 'login' %}">Login</a></li>
+        <li><a href="{% url 'Register' %}">Register</a></li>
+    </ul>
+</nav>
+<div class="content-items">
+    <img src="{% static 'images/t.jpg' %}" alt="Image" class="im">
+</div>
+
+</body>
+</html>
+

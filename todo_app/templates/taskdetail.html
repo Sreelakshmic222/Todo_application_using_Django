@@ -1,0 +1,25 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <Link rel="stylesheet" href="{%static 'css/taskdetail.css'%}">
+    <title>Title</title>
+</head>
+<body>
+<nav>
+    <div class="logo">
+        <p>Detail View</p>
+    </div>
+    <ul>
+        <li><a href="{% url 'task1' %}">Task List</a></li>
+    </ul>
+</nav>
+<br><br>
+<div class="frm">
+<h1>Task:{{tasks.title}}</h1>
+<h2>Aim:{{tasks.Description}}</h2>
+</div>
+</div>
+</body>
+</html>
