@@ -16,5 +16,5 @@ class Register(models.Model):
     email_id=models.EmailField(max_length=150)
 
 class Login(models.Model):
-    username=models.CharField(max_length=150)
-    password=models.CharField(max_length=150)
+     username=models.CharField(max_length=150)
+     password=models.CharField(max_length=150)
