@@ -1,3 +1,4 @@
+from django.http import request
 from django.urls import path
 from .views import TaskList, TaskCreate, TaskUpdate, TaskDelete, TaskDetailView, home
 from .import views
@@ -9,5 +10,6 @@ urlpatterns=[
     path('task-detail/<int:pk>/',TaskDetailView.as_view(),name='task-detail'),
     path('login/',views.login_fun,name='login'),
     path('register/',views.register_fun,name='Register'),
-    path('',home,name='home')
+    path('',home,name='home'),
+    path('mail/',views.mail)
 ]

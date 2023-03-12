@@ -3,6 +3,9 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 from .forms import RegisterForm,LoginForm
+from django.http import HttpResponse
+from django.core.mail import send_mail
+from todo_app import settings
 
 from .models import Tasks,Register,Login
 # Create your views here.
@@ -67,3 +70,14 @@ def home(request):
     template="home.html"
     context={}
     return render(request,template,context)
+
+def mail(request):
+    subject="Greetings"
+    msg="Congratulations for Your Success"
+    to="sreelakshmic222@gmail.com"
+    res=send_mail(subject,msg,settings.EMAIL_HOST_USER,[to])
+    if res==1:
+        msg="Mail sent Successfully"
+    else:
+        msg="Mail could not sent"
+    return HttpResponse(msg)

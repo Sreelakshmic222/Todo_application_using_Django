@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'todo_app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'todo_db',
+        'USER':'root',
+        'HOST':'localhost',
+        'PASSWORD':'7b!ACb139#@r',
+        'PORT':3306
     }
 }
 
@@ -99,6 +103,12 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT=587
+EMAIL_HOST_USER='reetham222@gmail.com'
+EMAIL_HOST_PASSWORD='vwdhnfiihilldxhf'
+EMAIL_USE_TLS=True
 
 
 # Internationalization
